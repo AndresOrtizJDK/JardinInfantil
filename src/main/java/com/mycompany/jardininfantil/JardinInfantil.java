@@ -3,8 +3,8 @@
  * en un jardin infantil (grados Prejardin y Jardin).
  *
  * Los estudiantes se guardan en memoria dentro de una lista
- * doblemente enlazada circular. Cada vez que se hace un cambio
- * (registrar o borrar) la lista se vuelca completa al archivo
+ * doblemente enlazada circular. 
+ * 
  * estudiantes.txt para que la informacion no se pierda.
  *
  * Formato de cada linea del archivo:

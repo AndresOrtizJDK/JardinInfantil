@@ -14,11 +14,11 @@
 package com.mycompany.jardininfantil;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class JardinInfantil {
@@ -188,15 +188,16 @@ public class JardinInfantil {
 
         // Se escribe la lista actualizada en el archivo temporal
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter(ARCHIVO_TEMP));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO_TEMP));
             if (!lista.estaVacia()) {
                 Nodo actual = lista.cabeza;
                 do {
-                    pw.println(actual.dato.enLinea());
+                    bw.write(actual.dato.enLinea());
+                    bw.newLine();
                     actual = actual.siguiente;
                 } while (actual != lista.cabeza);
             }
-            pw.close();
+            bw.close();
         } catch (IOException e) {
             System.out.println("Error al escribir el archivo temporal: " + e.getMessage());
             return;
@@ -367,15 +368,16 @@ public class JardinInfantil {
      */
     static void guardarEnArchivo() {
         try {
-            PrintWriter pw = new PrintWriter(new FileWriter(ARCHIVO));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO));
             if (!lista.estaVacia()) {
                 Nodo actual = lista.cabeza;
                 do {
-                    pw.println(actual.dato.enLinea());
+                    bw.write(actual.dato.enLinea());
+                    bw.newLine();
                     actual = actual.siguiente;
                 } while (actual != lista.cabeza);
             }
-            pw.close();
+            bw.close();
         } catch (IOException e) {
             System.out.println("Error al escribir el archivo: " + e.getMessage());
         }
